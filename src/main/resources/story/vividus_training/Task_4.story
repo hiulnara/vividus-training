@@ -10,7 +10,7 @@ When I ${baselineAction2} baseline with name `loginPage` ignoring:
 
 Scenario: Log in as a Good User
 When I log in as a user with registered username ${swagGoodUserName} and password ${swagPassword}
-Then text `Products` exists
+Then `${current-page-url}` is equal to `https://www.saucedemo.com/inventory.html`
 When I ${baselineAction1} baseline with name `homePageGoodUser`
 When I ${baselineAction2} baseline with name `homePageGoodUser` ignoring:
 |ELEMENT                                     |AREA                                  |ACCEPTABLE_DIFF_PERCENTAGE|
@@ -20,7 +20,7 @@ When I ${baselineAction2} baseline with name `homePageGoodUser` ignoring:
 Scenario: Log in as a Broken User
 When I logged out
 When I log in as a user with registered username ${swagBrokenUserName} and password ${swagPassword}
-Then text `Products` exists  
+Then `${current-page-url}` is equal to `https://www.saucedemo.com/inventory.html` 
 When I ${baselineAction1} baseline with name `homePageBrokenUser`
 When I ${baselineAction2} baseline with name `homePageBrokenUser` ignoring:
 |ELEMENT                                     |AREA                                  |ACCEPTABLE_DIFF_PERCENTAGE|

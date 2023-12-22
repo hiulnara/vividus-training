@@ -1,2 +1,16 @@
 {
+  "BUG-001": {
+    "type": "Internal",
+    "assertionPattern": ".*Expected: \"https:\\/\\/www.saucedemo.com\\/inventory.html\" Actual: was \"https:\\/\\/www.saucedemo.com\\/\".*",
+    "scenarioPattern": "Log in as a Locked User.*",
+    "stepPattern": "Then \\`\\$\\{current-page-url\\}\\` is equal to \\`https:\\/\\/www.saucedemo.com\\/inventory.html\\`",
+    "description": "Locked user cannot login to the system"
+  },
+  "BUG-002": {
+    "type": "Internal",
+    "assertionPattern": ".*Expected: number of elements is a value equal to <6> Actual: <0>.*",
+    "scenarioPattern": "Navigate to Inventory page",
+    "stepPattern": ".*number of elements found by.*",
+    "description": "There are no Inventory Items for Locked user"
+  }
 }
