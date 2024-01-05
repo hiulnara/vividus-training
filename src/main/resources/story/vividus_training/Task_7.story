@@ -9,7 +9,7 @@ Examples:
 
 Scenario: Navigate to the SauceDemo website homepage
 Given I am on main application page
-When I open side menu
+When I go to main application page
 Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
 
 Scenario: Log in
@@ -18,7 +18,7 @@ Then `${current-page-url}` is equal to `https://www.saucedemo.com/inventory.html
 
 Scenario: Add item to the shopping cart
 When I wait until element located by `<itemPageId>` appears
-Then text `<itemName>` exists 
+Then text `<itemName>` exists
 When I click on element located by `<addToCartButtonId>`
 Examples:
 |itemName|itemPageId|addToCartButtonId|
@@ -31,9 +31,9 @@ When I wait until element located by `<buttonLocator1>` appears
 Then number of elements found by `<buttonLocator2>` is equal to `1`
 When I click on element located by `id(checkout)`
 Then `${current-page-url}` is equal to `https://www.saucedemo.com/checkout-step-one.html`
-When I enter `<firstName>` in field located by `id(first-name)` 
-When I enter `<lastName>` in field located by `id(last-name)` 
-When I enter `<postalCode>` in field located by `id(postal-code)` 
+When I enter `<firstName>` in field located by `id(first-name)`
+When I enter `<lastName>` in field located by `id(last-name)`
+When I enter `<postalCode>` in field located by `id(postal-code)`
 When I take screenshot
 Examples:
 |buttonLocator1 |buttonLocator2|firstName|lastName|postalCode|

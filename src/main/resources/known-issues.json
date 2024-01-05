@@ -12,5 +12,12 @@
     "scenarioPattern": "Navigate to Inventory page",
     "stepPattern": ".*number of elements found by.*",
     "description": "There are no Inventory Items for Locked user"
+  },
+  "BUG-003": {
+    "type": "Internal",
+    "assertionPattern": ".*Expected: \"Thank you for the order\\!\" Actual: was \"Thank you for your order\\!\".*",
+    "scenarioPattern": "Validate order summary and complete order.*",
+    "stepPattern": "Then \\`\\$\\{thankYouMessage\\}\\` is.*",
+    "description": "Confirmation message will be corrected in the upcoming Release"
   }
 }

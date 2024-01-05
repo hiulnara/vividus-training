@@ -10,7 +10,7 @@ Examples:
 
 Scenario: Navigate to the SauceDemo website homepage
 Given I am on main application page
-When I open side menu
+When I go to main application page
 Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
 
 Scenario: Log in
@@ -19,7 +19,7 @@ Then `${current-page-url}` is equal to `https://www.saucedemo.com/inventory.html
 
 Scenario: Add 3 items to the shopping cart
 When I wait until element located by `<itemPageId>` appears
-Then text `<itemName>` exists 
+Then text `<itemName>` exists
 When I click on element located by `<addToCartButtonId>`
 Examples:
 |itemName|itemPageId|addToCartButtonId|
@@ -43,7 +43,7 @@ When I reset app state
 Then text `<cartItemName1>` does not exist
 Then text `<cartItemName2>` does not exist
 Then text `<cartItemName3>` does not exist
-When I logged out 
+When I logged out
 Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
 Examples:
 |cartItemName1|cartItemName2|cartItemName3|

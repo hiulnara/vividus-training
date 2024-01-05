@@ -1,9 +1,8 @@
 Scenario: Navigate to the SauceDemo website homepage
 Given I am on main application page
-When I open side menu
+When I go to main application page
 Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
-When I ${baselineAction1} baseline with name `loginPage`
-When I ${baselineAction2} baseline with name `loginPage` ignoring:
+When I ${baselineAction} baseline with name `loginPage` ignoring:
 |ACCEPTABLE_DIFF_PERCENTAGE|
 |5                         |
 

@@ -1,15 +1,15 @@
-Composite: When I open side menu
+Composite: When I go to main application page
 When I wait until element located by `xpath(//div[@class="login_logo"])` appears
 
 
-Composite: When I log in as a user with registered username $userName and password $password  
-When I enter `<userName>` in field located by `id(user-name)`  
+Composite: When I log in as a user with registered username $userName and password $password
+When I enter `<userName>` in field located by `id(user-name)`
 When I enter `<password>` in field located by `id(password)`
 When I click on element located by `xpath(//input[@type='submit'])`
 When I take screenshot
 
 
-Composite: When I logged out  
+Composite: When I logged out
 When I wait until element located by `xpath(//button[text()='Open Menu'])` appears
 When I click on element located by `id(react-burger-menu-btn)`
 When I wait until element located by `xpath(//div[@class="bm-menu"])` appears
