@@ -1,8 +1,5 @@
 Scenario: Navigate to the SauceDemo website homepage
-Given I am on main application page
 When I go to main application page
-Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
-
 
 Scenario: Log in as a Good User
 When I log in as a user with registered username ${swagGoodUserName} and password ${swagPassword}

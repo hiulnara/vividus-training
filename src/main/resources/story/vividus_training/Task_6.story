@@ -4,47 +4,37 @@ Meta:
 
 Lifecycle:
 Examples:
-|userName	                |password	    |
-|standard_user	            |secret_sauce	|
-|performance_glitch_user	|secret_sauce	|
+|userName	                |
+|standard_user	            |
+|performance_glitch_user	|
 
 Scenario: Navigate to the SauceDemo website homepage
-Given I am on main application page
 When I go to main application page
-Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
 
 Scenario: Log in
 When I log in as a user with registered username <userName> and password <password>
 Then `${current-page-url}` is equal to `https://www.saucedemo.com/inventory.html`
 
-Scenario: Add 3 items to the shopping cart
-When I wait until element located by `<itemPageId>` appears
+Scenario: Add item to the shopping cart
+When I wait until element located by `xpath(//a[@id="item_<itemPageId>_title_link"])` appears
 Then text `<itemName>` exists
-When I click on element located by `<addToCartButtonId>`
+When I click on element located by `xpath(//button[@id="add-to-cart-<addToCartButtonId>"])`
 Examples:
 |itemName|itemPageId|addToCartButtonId|
-|Sauce Labs Bolt T-Shirt|xpath(//a[@id="item_1_title_link"])|xpath(//button[@id="add-to-cart-sauce-labs-bolt-t-shirt"])|
-|Sauce Labs Backpack|xpath(//a[@id="item_4_title_link"])|xpath(//button[@id="add-to-cart-sauce-labs-backpack"])|
-|Sauce Labs Bike Light|xpath(//a[@id="item_0_title_link"])|xpath(//button[@id="add-to-cart-sauce-labs-bike-light"])|
-
+|Sauce Labs Bolt T-Shirt|1|sauce-labs-bolt-t-shirt|
+|Sauce Labs Backpack|4|sauce-labs-backpack|
+|Sauce Labs Bike Light|0|sauce-labs-bike-light|
 
 Scenario: Validate the num of items in the shopping cart
-When I open my Cart
+When I click on element located by `xpath(//a[@class="shopping_cart_link"])`
 Then `${current-page-url}` is equal to `https://www.saucedemo.com/cart.html`
-When I wait until element located by `<buttonLocator1>` appears
-Then number of elements found by `<buttonLocator2>` is equal to `3`
-Examples:
-|buttonLocator1 |buttonLocator2|
-|xpath(//div[@class="cart_list"])|xpath(//div[@class="cart_quantity"])|
-
+When I wait until element located by `xpath(//div[@class="cart_list"])` appears
+Then number of elements found by `xpath(//div[@class="cart_quantity"])` is equal to `3`
 
 Scenario: Log Out
 When I reset app state
-Then text `<cartItemName1>` does not exist
-Then text `<cartItemName2>` does not exist
-Then text `<cartItemName3>` does not exist
+Then text `Sauce Labs Bolt T-Shirt` does not exist
+Then text `Sauce Labs Backpack` does not exist
+Then text `Sauce Labs Bike Light` does not exist
 When I logged out
 Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
-Examples:
-|cartItemName1|cartItemName2|cartItemName3|
-|Sauce Labs Bolt T-Shirt|Sauce Labs Backpack|Sauce Labs Bike Light|

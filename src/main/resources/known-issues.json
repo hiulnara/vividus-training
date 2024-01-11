@@ -9,7 +9,7 @@
   "BUG-002": {
     "type": "Internal",
     "assertionPattern": ".*Expected: number of elements is a value equal to <6> Actual: <0>.*",
-    "scenarioPattern": "Navigate to Inventory page",
+    "scenarioPattern": "Log in as a Locked User.*",
     "stepPattern": ".*number of elements found by.*",
     "description": "There are no Inventory Items for Locked user"
   },

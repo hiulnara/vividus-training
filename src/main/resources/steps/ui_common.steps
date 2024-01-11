@@ -1,12 +1,14 @@
 Composite: When I go to main application page
+Given I am on main application page
 When I wait until element located by `xpath(//div[@class="login_logo"])` appears
+Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
+When I take screenshot
 
 
 Composite: When I log in as a user with registered username $userName and password $password
 When I enter `<userName>` in field located by `id(user-name)`
-When I enter `<password>` in field located by `id(password)`
+When I enter `${swagPassword}` in field located by `id(password)`
 When I click on element located by `xpath(//input[@type='submit'])`
-When I take screenshot
 
 
 Composite: When I logged out
@@ -16,16 +18,9 @@ When I wait until element located by `xpath(//div[@class="bm-menu"])` appears
 When I click on element located by `id(logout_sidebar_link)`
 
 
-Composite: When I open products menu
-When I wait until element located by `xpath(//div[@class="inventory_list"])` appears
-
-
 Composite: When I reset app state
 When I wait until element located by `xpath(//button[text()='Open Menu'])` appears
 When I click on element located by `id(react-burger-menu-btn)`
 When I wait until element located by `xpath(//div[@class="bm-menu"])` appears
 When I click on element located by `id(reset_sidebar_link)`
 When I refresh page
-
-Composite: When I open my Cart
-When I click on element located by `xpath(//a[@class="shopping_cart_link"])`
