@@ -29,9 +29,12 @@ When I wait until element located by `xpath(//div[@class="cart_list"])` appears
 Then number of elements found by `xpath(//div[@class="cart_quantity"])` is equal to `1`
 When I click on element located by `id(checkout)`
 Then `${current-page-url}` is equal to `https://www.saucedemo.com/checkout-step-one.html`
-When I enter `#{generate(regexify '[A-Z]{1}[a-z]{7}')}` in field located by `id(first-name)`
-When I enter `#{generate(regexify '[A-Z]{1}[a-z]{12}')}` in field located by `id(last-name)`
-When I enter `#{generate(regexify '[A-Z]{3}[-][0-9]{5}')}` in field located by `id(postal-code)`
+Given I initialize story variable `userFirstName` with value `#{generate(Name.firstName)}`
+Given I initialize story variable `userLastName` with value `#{generate(regexify '[A-Za-z]{10}')}`
+Given I initialize story variable `postalCode` with value `#{generate(regexify '[A-Z]{3}[-][0-9]{5}')}`
+When I enter `${userFirstName}` in field located by `id(first-name)`
+When I enter `${userLastName}` in field located by `id(last-name)`
+When I enter `${postalCode}` in field located by `id(postal-code)`
 When I take screenshot
 
 Scenario: Complete checkout process
